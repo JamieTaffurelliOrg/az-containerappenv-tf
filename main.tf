@@ -38,7 +38,7 @@ resource "azurerm_container_app_environment_dapr_component" "dapr_component" {
   }
 
   dynamic "secret" {
-    for_each = each.value["secret"] == null ? [] : [var.dapr_components.secret]
+    for_each = each.value["secret"] == null ? [] : [each.value["secret"]]
 
     content {
       name  = secret.value["name"]
