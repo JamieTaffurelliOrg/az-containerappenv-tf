@@ -26,18 +26,11 @@ resource "azapi_resource" "container_app_env" {
         }
       }
       "infrastructureResourceGroup" = var.infrastructure_resource_group
+      "zoneRedundant" : var.zone_redundant
       vnetConfiguration = {
         "internal"               = var.internal_load_balancer_enabled
         "infrastructureSubnetId" = data.azurerm_subnet.container_app_env_subnet.id
       }
-      workloadProfiles = [
-        {
-          name                = "Consumption"
-          workloadProfileType = "Consumption"
-          maximumCount        = var.maximum_count
-          maximumCount        = var.minimum_count
-        }
-      ]
     }
   })
 }

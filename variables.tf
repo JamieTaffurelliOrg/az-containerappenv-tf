@@ -40,14 +40,9 @@ variable "infrastructure_resource_group" {
   description = "Platform managed resource group"
 }
 
-variable "maximum_count" {
-  type        = number
-  description = "The maximum capacity"
-}
-
-variable "minimum_count" {
-  type        = number
-  description = "The minimum capacity"
+variable "zone_redundant" {
+  type    = bool
+  default = true
 }
 
 variable "certificates" {
