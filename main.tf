@@ -10,10 +10,10 @@ resource "azurerm_container_app_environment" "container_app_env" {
 }
 
 resource "azurerm_container_app_environment_certificate" "container_app_env_cert" {
-  for_each                     = var.certificate == null ? [] : [var.certificate]
-  name                         = var.certificate.container_app_env_cert_name
+  for_each                     = { for k in var.certificates : k.name => k if k != null }
+  name                         = each.key
   container_app_environment_id = azurerm_container_app_environment.container_app_env.id
-  certificate_blob_base64      = data.azurerm_key_vault_certificate.cert[0].certificate_data_base64
+  certificate_blob_base64      = data.azurerm_key_vault_certificate.cert[(each.key)].certificate_data_base64
   certificate_password         = ""
 }
 
