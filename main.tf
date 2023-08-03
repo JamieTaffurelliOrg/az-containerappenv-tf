@@ -95,7 +95,7 @@ resource "azurerm_monitor_diagnostic_setting" "appgw_diagnostics" {
   }
 
   log {
-    category = "SpringAppConsoleLogs"
+    category = "AppEnvSpringAppConsoleLogs"
     enabled  = true
 
     retention_policy {
