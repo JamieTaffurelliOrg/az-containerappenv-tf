@@ -36,6 +36,7 @@ variable "subnet_resource_group_name" {
 
 variable "infrastructure_resource_group" {
   type        = string
+  default     = null
   description = "Platform managed resource group"
 }
 
