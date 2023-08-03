@@ -34,15 +34,15 @@ variable "subnet_resource_group_name" {
   description = "Resource group of the subnet of the container app environment"
 }
 
-variable "certificate" {
-  type = object({
-    name                          = string
-    version                       = optional(string)
-    key_vault_name                = string
-    key_vault_resource_group_name = string
-    container_app_env_cert_name   = string
-  })
-  default     = null
+variable "certificates" {
+  type = list(object({
+    name                        = string
+    version                     = optional(string)
+    key_vault_id                = string
+    key_vault_cert_name         = string
+    container_app_env_cert_name = string
+  }))
+  default     = []
   description = "Certificate for custom domain"
 }
 

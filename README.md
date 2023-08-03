@@ -25,7 +25,6 @@ No modules.
 | [azurerm_container_app_environment.container_app_env](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app_environment) | resource |
 | [azurerm_container_app_environment_certificate.container_app_env_cert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app_environment_certificate) | resource |
 | [azurerm_container_app_environment_dapr_component.dapr_component](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/container_app_environment_dapr_component) | resource |
-| [azurerm_key_vault.cert_key_vault](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/key_vault) | data source |
 | [azurerm_key_vault_certificate.cert](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/key_vault_certificate) | data source |
 | [azurerm_log_analytics_workspace.logs](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/log_analytics_workspace) | data source |
 | [azurerm_subnet.container_app_env_subnet](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/subnet) | data source |
@@ -34,7 +33,7 @@ No modules.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| <a name="input_certificate"></a> [certificate](#input\_certificate) | Certificate for custom domain | <pre>object({<br>    name                          = string<br>    version                       = optional(string)<br>    key_vault_name                = string<br>    key_vault_resource_group_name = string<br>    container_app_env_cert_name   = string<br>  })</pre> | `null` | no |
+| <a name="input_certificates"></a> [certificates](#input\_certificates) | Certificate for custom domain | <pre>list(object({<br>    name                        = string<br>    version                     = optional(string)<br>    key_vault_id                = string<br>    key_vault_cert_name         = string<br>    container_app_env_cert_name = string<br>  }))</pre> | `[]` | no |
 | <a name="input_container_app_environment_name"></a> [container\_app\_environment\_name](#input\_container\_app\_environment\_name) | Name of the container app environment | `string` | n/a | yes |
 | <a name="input_dapr_components"></a> [dapr\_components](#input\_dapr\_components) | Dapr components to deploy | <pre>list(object(<br>    {<br>      name           = string<br>      component_type = string<br>      version        = optional(string, "v1")<br>      ignore_errors  = optional(bool, false)<br>      init_timeout   = optional(string, "5s")<br>      scopes         = optional(list(string))<br>      metadata = optional(list(object({<br>        name        = string<br>        secret_name = optional(string)<br>        value       = optional(string)<br>      })))<br>      secret = optional(object({<br>        name             = string<br>        secret_reference = string<br>      }))<br>    }<br>  ))</pre> | `[]` | no |
 | <a name="input_internal_load_balancer_enabled"></a> [internal\_load\_balancer\_enabled](#input\_internal\_load\_balancer\_enabled) | Make container app env internal only | `bool` | `true` | no |
