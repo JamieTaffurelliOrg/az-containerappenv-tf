@@ -40,12 +40,12 @@ variable "infrastructure_resource_group" {
 }
 
 variable "maximum_count" {
-  type        = string
+  type        = number
   description = "The maximum capacity"
 }
 
 variable "minimum_count" {
-  type        = string
+  type        = number
   description = "The minimum capacity"
 }
 
