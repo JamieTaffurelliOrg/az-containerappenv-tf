@@ -18,13 +18,6 @@ resource "azapi_resource" "container_app_env" {
 
   body = jsonencode({
     properties = {
-      appLogsConfiguration = {
-        destination = "log-analytics"
-        logAnalyticsConfiguration = {
-          customerId = data.azurerm_log_analytics_workspace.logs.workspace_id
-          sharedKey  = data.azurerm_log_analytics_workspace.logs.primary_shared_key
-        }
-      }
       "infrastructureResourceGroup" = var.infrastructure_resource_group
       "zoneRedundant" : var.zone_redundant
       vnetConfiguration = {
@@ -69,6 +62,32 @@ resource "azurerm_container_app_environment_dapr_component" "dapr_component" {
     content {
       name  = secret.value["name"]
       value = var.secrets[(secret.value["secret_reference"])].value
+    }
+  }
+}
+
+resource "azurerm_monitor_diagnostic_setting" "appgw_diagnostics" {
+  name                       = "${var.log_analytics_workspace_name}-security-logging"
+  target_resource_id         = azapi_resource.container_app_env.id
+  log_analytics_workspace_id = data.azurerm_log_analytics_workspace.logs.id
+
+  log {
+    category = "ContainerAppConsoleLogs"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
+
+  log {
+    category = "ContainerAppSystemLogs"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
     }
   }
 }
