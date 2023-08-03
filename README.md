@@ -44,14 +44,13 @@ No modules.
 | <a name="input_location"></a> [location](#input\_location) | Location of the container app environment | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace_name"></a> [log\_analytics\_workspace\_name](#input\_log\_analytics\_workspace\_name) | Name of Log Analytics Workspace to send diagnostics | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace_resource_group_name"></a> [log\_analytics\_workspace\_resource\_group\_name](#input\_log\_analytics\_workspace\_resource\_group\_name) | Resource Group of Log Analytics Workspace to send diagnostics | `string` | n/a | yes |
-| <a name="input_maximum_count"></a> [maximum\_count](#input\_maximum\_count) | The maximum capacity | `number` | n/a | yes |
-| <a name="input_minimum_count"></a> [minimum\_count](#input\_minimum\_count) | The minimum capacity | `number` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource Group name to deploy to | `string` | n/a | yes |
 | <a name="input_secrets"></a> [secrets](#input\_secrets) | Secrets for Dapr components | <pre>map(object(<br>    {<br>      value = string<br>    }<br>  ))</pre> | `{}` | no |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | Subnet of the container app environment | `string` | n/a | yes |
 | <a name="input_subnet_resource_group_name"></a> [subnet\_resource\_group\_name](#input\_subnet\_resource\_group\_name) | Resource group of the subnet of the container app environment | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply | `map(string)` | n/a | yes |
 | <a name="input_virtual_network_name"></a> [virtual\_network\_name](#input\_virtual\_network\_name) | VNet of the container app environment | `string` | n/a | yes |
+| <a name="input_zone_redundant"></a> [zone\_redundant](#input\_zone\_redundant) | n/a | `bool` | `true` | no |
 
 ## Outputs
 
