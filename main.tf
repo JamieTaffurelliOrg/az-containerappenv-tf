@@ -93,4 +93,14 @@ resource "azurerm_monitor_diagnostic_setting" "appgw_diagnostics" {
       days    = 365
     }
   }
+
+  log {
+    category = "SpringAppConsoleLogs"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
 }
