@@ -39,19 +39,18 @@ No modules.
 | <a name="input_certificates"></a> [certificates](#input\_certificates) | Certificate for custom domain | <pre>list(object({<br>    name                        = string<br>    version                     = optional(string)<br>    key_vault_id                = string<br>    key_vault_cert_name         = string<br>    container_app_env_cert_name = string<br>  }))</pre> | `[]` | no |
 | <a name="input_container_app_environment_name"></a> [container\_app\_environment\_name](#input\_container\_app\_environment\_name) | Name of the container app environment | `string` | n/a | yes |
 | <a name="input_dapr_components"></a> [dapr\_components](#input\_dapr\_components) | Dapr components to deploy | <pre>list(object(<br>    {<br>      name           = string<br>      component_type = string<br>      version        = optional(string, "v1")<br>      ignore_errors  = optional(bool, false)<br>      init_timeout   = optional(string, "5s")<br>      scopes         = optional(list(string))<br>      metadata = optional(list(object({<br>        name        = string<br>        secret_name = optional(string)<br>        value       = optional(string)<br>      })))<br>      secret = optional(object({<br>        name             = string<br>        secret_reference = string<br>      }))<br>    }<br>  ))</pre> | `[]` | no |
-| <a name="input_infrastructure_resource_group"></a> [infrastructure\_resource\_group](#input\_infrastructure\_resource\_group) | Platform managed resource group | `string` | n/a | yes |
+| <a name="input_infrastructure_resource_group"></a> [infrastructure\_resource\_group](#input\_infrastructure\_resource\_group) | Platform managed resource group | `string` | `null` | no |
 | <a name="input_internal_load_balancer_enabled"></a> [internal\_load\_balancer\_enabled](#input\_internal\_load\_balancer\_enabled) | Make container app env internal only | `bool` | `true` | no |
 | <a name="input_location"></a> [location](#input\_location) | Location of the container app environment | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace_name"></a> [log\_analytics\_workspace\_name](#input\_log\_analytics\_workspace\_name) | Name of Log Analytics Workspace to send diagnostics | `string` | n/a | yes |
 | <a name="input_log_analytics_workspace_resource_group_name"></a> [log\_analytics\_workspace\_resource\_group\_name](#input\_log\_analytics\_workspace\_resource\_group\_name) | Resource Group of Log Analytics Workspace to send diagnostics | `string` | n/a | yes |
-| <a name="input_maximum_count"></a> [maximum\_count](#input\_maximum\_count) | The maximum capacity | `string` | n/a | yes |
-| <a name="input_minimum_count"></a> [minimum\_count](#input\_minimum\_count) | The minimum capacity | `string` | n/a | yes |
 | <a name="input_resource_group_name"></a> [resource\_group\_name](#input\_resource\_group\_name) | Resource Group name to deploy to | `string` | n/a | yes |
 | <a name="input_secrets"></a> [secrets](#input\_secrets) | Secrets for Dapr components | <pre>map(object(<br>    {<br>      value = string<br>    }<br>  ))</pre> | `{}` | no |
 | <a name="input_subnet_name"></a> [subnet\_name](#input\_subnet\_name) | Subnet of the container app environment | `string` | n/a | yes |
 | <a name="input_subnet_resource_group_name"></a> [subnet\_resource\_group\_name](#input\_subnet\_resource\_group\_name) | Resource group of the subnet of the container app environment | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to apply | `map(string)` | n/a | yes |
 | <a name="input_virtual_network_name"></a> [virtual\_network\_name](#input\_virtual\_network\_name) | VNet of the container app environment | `string` | n/a | yes |
+| <a name="input_zone_redundant"></a> [zone\_redundant](#input\_zone\_redundant) | n/a | `bool` | `true` | no |
 
 ## Outputs
 
