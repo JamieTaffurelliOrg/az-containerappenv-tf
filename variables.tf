@@ -34,6 +34,22 @@ variable "subnet_resource_group_name" {
   description = "Resource group of the subnet of the container app environment"
 }
 
+variable "infrastructure_resource_group" {
+  type        = string
+  default     = null
+  description = "Platform managed resource group"
+}
+
+variable "maximum_count" {
+  type        = number
+  description = "The maximum capacity"
+}
+
+variable "minimum_count" {
+  type        = number
+  description = "The minimum capacity"
+}
+
 variable "certificates" {
   type = list(object({
     name                        = string
