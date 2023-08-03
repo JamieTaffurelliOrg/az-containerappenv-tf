@@ -103,4 +103,14 @@ resource "azurerm_monitor_diagnostic_setting" "appgw_diagnostics" {
       days    = 365
     }
   }
+
+  metric {
+    category = "AllMetrics"
+    enabled  = true
+
+    retention_policy {
+      enabled = true
+      days    = 365
+    }
+  }
 }
