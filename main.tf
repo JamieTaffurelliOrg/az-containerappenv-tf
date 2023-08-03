@@ -69,7 +69,7 @@ resource "azurerm_container_app_environment_dapr_component" "dapr_component" {
   }
 }
 
-resource "azurerm_monitor_diagnostic_setting" "appgw_diagnostics" {
+resource "azurerm_monitor_diagnostic_setting" "container_app_env_diagnostics" {
   name                       = "${var.log_analytics_workspace_name}-security-logging"
   target_resource_id         = azapi_resource.container_app_env.id
   log_analytics_workspace_id = data.azurerm_log_analytics_workspace.logs.id
