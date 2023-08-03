@@ -18,6 +18,9 @@ resource "azapi_resource" "container_app_env" {
 
   body = jsonencode({
     properties = {
+      appLogsConfiguration = {
+        destination = "azure-monitor"
+      }
       "infrastructureResourceGroup" = var.infrastructure_resource_group
       "zoneRedundant" : var.zone_redundant
       vnetConfiguration = {
