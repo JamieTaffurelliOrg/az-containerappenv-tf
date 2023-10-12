@@ -21,11 +21,11 @@ resource "azapi_resource" "container_app_env" {
       appLogsConfiguration = {
         destination = "azure-monitor"
       }
-      "infrastructureResourceGroup" = var.infrastructure_resource_group
-      "zoneRedundant" : var.zone_redundant
+      infrastructureResourceGroup = var.infrastructure_resource_group
+      zoneRedundant               = var.zone_redundant
       vnetConfiguration = {
-        "internal"               = var.internal_load_balancer_enabled
-        "infrastructureSubnetId" = data.azurerm_subnet.container_app_env_subnet.id
+        internal               = var.internal_load_balancer_enabled
+        infrastructureSubnetId = data.azurerm_subnet.container_app_env_subnet.id
       }
     }
   })
